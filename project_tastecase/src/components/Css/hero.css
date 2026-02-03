@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../assets/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('truetype');
+  font-weight: 400 900;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url('../../assets/Montserrat-Italic-VariableFont_wght.ttf');
+  font-weight: 400 900;
+}
+
+.Hero{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #080808;
+    font-family: 'montserrat', sans-serif;
+  
+}
+.orb{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.Hero-bottom{
+    max-width: 700px;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    text-align: center;
+    z-index: 2;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 20px;
+    transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1), filter 260ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    filter: drop-shadow(0 0 0px rgba(156, 51, 229, 0));
+}
+
+.Hero-bottom:hover {
+    transform: translate(-50%, -50%) scale(1.08) rotateY(5deg);
+    filter: drop-shadow(0 0 30px rgba(156, 51, 229, 0.6));
+    cursor: pointer;
+}
+.Hero_Header{
+    font-size: 50px;
+    color: #f0f0ef;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        filter: drop-shadow(0 0 30px rgba(149, 25, 237, 0.638));
+
+ 
+}
+.Hero p{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #d0d0d0;
+    max-width: 600px;
+}
+.Hero-button{
+    
+    background: #9c33e5;
+    border: none;
+    color: white;
+    padding: 15px 28px;
+    margin: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 550ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.Hero-button:hover {
+    border: 1px solid #9c33e5;
+    background: transparent;
+}
+
+
+.Para{
+  opacity: 0;
+  transform: translateY(70px);
+  transition: all 0.7s ease;
+}
+.Para.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.Hero-bottom-buttons{
+  opacity: 0;
+  transform: translateY(70px);
+  transition: all 0.7s ease;
+
+}
+.Hero-bottom-buttons.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.orb{
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.7s ease;
+}
+.orb.show {
+  opacity: 1;
+  transform: scale(1);
+}

@@ -1,0 +1,84 @@
+.NavBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: block;
+
+}
+.Nav_wrapper{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 18px  36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* translucent blurred background */
+    background: rgba(22,19,26,0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.Nav_items{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin: auto;
+}
+
+/* remove default list bullets and spacing and remove link underlines */
+.Nav_items{
+    list-style: none;
+    margin: 0;
+      color: #ffffff;
+    padding: 0;
+}
+
+.Nav_item{
+    list-style: none;
+      color: #ffffff;
+      font-size: 20px;
+}
+
+.Nav_items a{
+    text-decoration: none !important;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+/* animated slide-in underline */
+.Nav_items a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: #9c33e5;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 260ms cubic-bezier(.2,.9,.2,1);
+}
+
+.Nav_items a:hover::after{
+    transform: scaleX(1);
+}
+
+
+
+.Nav_wrapper{
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 0.5s ease;
+}
+
+.Nav_wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
+}

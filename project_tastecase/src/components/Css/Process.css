@@ -1,0 +1,152 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../assets/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('truetype');
+  font-weight: 400 900;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url('../../assets/Montserrat-Italic-VariableFont_wght.ttf');
+  font-weight: 400 900;
+}
+
+.Porcess_wrapper{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    border-bottom: 1px dotted rgba(165, 86, 244, 0.1);
+    
+}
+.Process_Bg{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #080808;
+   
+}
+.Process_cardWrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Process_headlines{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    filter: drop-shadow(0px 0px 20px rgba(125, 59, 183));
+
+}
+.Process_mini_title{
+    color: #7d3bb7;
+    font-size: 22px;
+    font-family: Roboto;
+}
+.Process_title{
+    font-size: 28px;
+    color: #ffffff;
+    font-family: montserrat;
+}
+.Process_subtitle{
+    color: #87848d;
+    font-size: 20px;
+    font-family: Roboto;
+}
+.ProcessCard_wrapper{
+    display: flex;
+    width: 100%;
+    max-width: 1500px;
+    margin-top: 80px;
+}
+.ProcessCards{
+    background-color: #121212;
+    border-radius: 42px;
+    padding: 50px;
+    margin: 0 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+
+        filter: drop-shadow(10px 10px 10px rgba(48, 8, 76, 0.6));
+transition: all 0.3s ease;
+
+}
+.ProcessCard_IMG{
+   width: 70px;
+   height: 70px;
+   padding: 20px;
+   border: 1px solid #7d3bb7;
+    border-radius: 35%;
+    background-color: #FFffFF;
+
+;
+        filter: drop-shadow(0px 0px 5px rgb(248, 203, 238));
+
+ 
+}
+
+.ProcessCards:hover{
+    transform: scale(1.1);
+    background-color: #121212;
+    border-radius: 42px;
+    padding: 50px;
+    margin: 0 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+        filter: drop-shadow(10px 10px 10px rgba(48, 8, 76, 0.6));
+
+}
+.Process_headlines {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.7s ease;
+  
+}
+
+.Process_headlines.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ProcessCard_wrapper {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.9s ease;
+}
+
+.ProcessCard_wrapper.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.ProcessCard_title{
+    color: #ffffff;
+    font-size: 22px;
+    font-family: montserrat;
+            filter: drop-shadow(0px 0px 5px rgb(248, 203, 238));
+
+}
+.ProcessCard_para{
+    margin-top: -20px;
+    color: #87848d;
+    font-size: 16px;
+    font-family: Roboto;
+    text-align: center;
+}
