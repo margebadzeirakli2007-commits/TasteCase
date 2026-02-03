@@ -1,3 +1,14 @@
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../assets/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('truetype');
+  font-weight: 400 900;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url('../../assets/Montserrat-Italic-VariableFont_wght.ttf');
+  font-weight: 400 900;
+}
 .NavBar{
     position: fixed;
     top: 0;
@@ -8,7 +19,7 @@
 
 }
 .Nav_wrapper{
-    max-width: 800px;
+    max-width: 650px;
     margin: 20px auto;
     padding: 18px  36px;
     display: flex;
@@ -32,16 +43,25 @@
 
 /* remove default list bullets and spacing and remove link underlines */
 .Nav_items{
+    display: flex;
+    align-items: center;
     list-style: none;
     margin: 0;
       color: #ffffff;
     padding: 0;
 }
+.Nav_wrap{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+ 
 
+}
 .Nav_item{
     list-style: none;
       color: #ffffff;
-      font-size: 20px;
+      font-size: 22px;
+       font-family: 'Roboto';
 }
 
 .Nav_items a{
@@ -50,6 +70,7 @@
     position: relative;
     display: inline-block;
     padding: 2px 0;
+   
 }
 
 /* animated slide-in underline */
@@ -81,4 +102,21 @@
 .Nav_wrapper.show {
   opacity: 1;
   transform: translateY(0);
+}
+.Logo{
+    height: 70px;
+    width: 70px;
+      transition: all 0.5s ease;
+      padding: 10px;
+    border-radius: 45%;
+
+
+}
+.Logo:hover{
+  
+    background-color: rgb(255, 255, 255);
+;
+filter: drop-shadow(0px 0px 5px rgb(248, 203, 238));
+
+ 
 }

@@ -1,6 +1,6 @@
 import '../components/Css/NavBar.css';
 import useInView from './ui/AnimationHook.js'
-
+import MainLogo from "../assets/WhatsApp_Image_2026-02-03_at_06.37.15-removebg-preview.png"
 
 function NavBar() {
 
@@ -25,11 +25,16 @@ function NavBar() {
                  
       
       >
-        <nav >
-          <ul className='Nav_items'>
-            <li className='Nav_item'>
-              <a href="#home" onClick={(e) => scrollToSection(e, 'home')}>Home</a>
+        <nav className='Nav_wrap' >
+ <li className='Nav_item'>
+              <a href="#home" onClick={(e) => scrollToSection(e, 'home')}>
+                <img  src={MainLogo} alt='MainLogo' className='Logo'></img>
+              </a>
             </li>
+
+
+          <ul className='Nav_items'>
+        
             <li className='Nav_item'>
               <a href="#service" onClick={(e) => scrollToSection(e, 'service')}>Service</a>
             </li>
