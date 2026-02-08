@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1e22fcf.css",
-    "main.js": "/static/js/main.e3eed58e.js",
-    "static/js/453.3e409fdf.chunk.js": "/static/js/453.3e409fdf.chunk.js",
-    "static/media/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf": "/static/media/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.f700cdc3d6dd6bdaebd3.ttf",
-    "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/static/media/Montserrat-Italic-VariableFont_wght.e984c33119fec0800d45.ttf",
-    "static/media/WhatsApp_Image_2026-02-03_at_06.37.15-removebg-preview.png": "/static/media/WhatsApp_Image_2026-02-03_at_06.37.15-removebg-preview.32c725eb20bd530609a7.png",
-    "static/media/rocket-takeoff.svg": "/static/media/rocket-takeoff.cdce40e66a89f2822b37bd3251684c29.svg",
-    "static/media/brush.svg": "/static/media/brush.b2aad4e82164ac053547df37a87c6243.svg",
-    "index.html": "/index.html",
-    "static/media/code-slash.svg": "/static/media/code-slash.cd1be45854da7cd8099d9f48abeb69ec.svg",
-    "static/media/check-circle-fill.svg": "/static/media/check-circle-fill.cbea090e97c3f73235c68e8206fd5dd5.svg",
-    "static/media/search.svg": "/static/media/search.582e6fdae2c59f4e7b41bc2c538877cd.svg",
-    "main.a1e22fcf.css.map": "/static/css/main.a1e22fcf.css.map",
-    "main.e3eed58e.js.map": "/static/js/main.e3eed58e.js.map",
-    "453.3e409fdf.chunk.js.map": "/static/js/453.3e409fdf.chunk.js.map"
+    "main.css": "/TasteCase/static/css/main.449213cf.css",
+    "main.js": "/TasteCase/static/js/main.43ceec6d.js",
+    "static/js/453.3e409fdf.chunk.js": "/TasteCase/static/js/453.3e409fdf.chunk.js",
+    "static/media/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf": "/TasteCase/static/media/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.f700cdc3d6dd6bdaebd3.ttf",
+    "static/media/Montserrat-Italic-VariableFont_wght.ttf": "/TasteCase/static/media/Montserrat-Italic-VariableFont_wght.e984c33119fec0800d45.ttf",
+    "static/media/WhatsApp_Image_2026-02-03_at_06.37.15-removebg-preview.png": "/TasteCase/static/media/WhatsApp_Image_2026-02-03_at_06.37.15-removebg-preview.32c725eb20bd530609a7.png",
+    "static/media/rocket-takeoff.svg": "/TasteCase/static/media/rocket-takeoff.cdce40e66a89f2822b37bd3251684c29.svg",
+    "static/media/brush.svg": "/TasteCase/static/media/brush.b2aad4e82164ac053547df37a87c6243.svg",
+    "index.html": "/TasteCase/index.html",
+    "static/media/code-slash.svg": "/TasteCase/static/media/code-slash.cd1be45854da7cd8099d9f48abeb69ec.svg",
+    "static/media/check-circle-fill.svg": "/TasteCase/static/media/check-circle-fill.cbea090e97c3f73235c68e8206fd5dd5.svg",
+    "static/media/search.svg": "/TasteCase/static/media/search.582e6fdae2c59f4e7b41bc2c538877cd.svg",
+    "main.449213cf.css.map": "/TasteCase/static/css/main.449213cf.css.map",
+    "main.43ceec6d.js.map": "/TasteCase/static/js/main.43ceec6d.js.map",
+    "453.3e409fdf.chunk.js.map": "/TasteCase/static/js/453.3e409fdf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1e22fcf.css",
-    "static/js/main.e3eed58e.js"
+    "static/css/main.449213cf.css",
+    "static/js/main.43ceec6d.js"
   ]
 }
