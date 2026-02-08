@@ -17,16 +17,19 @@ function Process() {
       <div className="Porcess_wrapper">
         <div className="Process_Bg">
           <div
-		
-		  style={{ width: '100%', height: '100vh', position: 'relative' }}>
+className="Process_Bg"
+
+		  style={{ width: '100%', height: '100%', position: 'absolute' }}>
             <FloatingLines
-              enabledWaves={['top', 'middle', 'bottom']}
-              lineCount={2}
-              lineDistance={1}
-              bendRadius={0.1}
-              bendStrength={-0.5}
-              interactive={false}
-              parallax={false}
+                enabledWaves={["top","middle","bottom"]}
+    // Array - specify line count per wave; Number - same count for all waves
+    lineCount={5}
+    // Array - specify line distance per wave; Number - same distance for all waves
+    lineDistance={5}
+    bendRadius={5}
+    bendStrength={-0.5}
+    interactive={false}
+    parallax={true}
             />
           </div>
         </div>

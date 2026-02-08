@@ -21,7 +21,7 @@
 .Nav_wrapper{
     max-width: 650px;
     margin: 20px auto;
-    padding: 18px  36px;
+    padding: 5px  36px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,9 +114,137 @@
 }
 .Logo:hover{
   
-    background-color: rgb(255, 255, 255);
-;
 filter: drop-shadow(0px 0px 5px rgb(248, 203, 238));
 
  
+}
+@media (width <= 1000px){
+.Nav_wrapper{
+    max-width: 550px;
+    margin: 15px auto;
+    padding: 5px  36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* translucent blurred background */
+    background: rgba(22,19,26,0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.Nav_items{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: auto;
+}
+}
+@media (width <= 1000px){
+    .Nav_wrapper{
+    max-width: 550px;
+    margin: 15px auto;
+    padding: 5px  36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* translucent blurred background */
+    background: rgba(22,19,26,0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.Nav_items{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin: auto;
+}
+
+.Logo{
+    height: 70px;
+    width: 70px;
+      transition: all 0.5s ease;
+      padding: 10px;
+    border-radius: 45%;
+
+
+}
+.Logo:hover{
+  
+    background-color: transparent;
+filter: none;
+
+ 
+}
+}
+@media (width <= 768px){
+    .Nav_wrapper{
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 0px  20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* translucent blurred background */
+    background: rgba(22,19,26,0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.Nav_items{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: auto;
+}
+
+
+}
+@media (width <= 500px){
+
+.Nav_wrapper{
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 5px  5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* translucent blurred background */
+    background: rgba(22,19,26,0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.Nav_wrap{
+
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+ 
+}
+.Nav_items{
+
+    max-width: 200px;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 1fr 1fr ;
+    gap: 10px;
+    margin: 0px 30px;
+}
+.Nav_item a{
+    font-size: 16px;
+}
 }

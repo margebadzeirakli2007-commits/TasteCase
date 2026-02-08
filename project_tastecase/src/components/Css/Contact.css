@@ -1,0 +1,295 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../../assets/RobotoFlex-VariableFont_GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght.ttf') format('truetype');
+  font-weight: 400 900;
+}
+@font-face {
+  font-family: 'montserrat';
+  src: url('../../assets/Montserrat-Italic-VariableFont_wght.ttf');
+  font-weight: 400 900;
+}
+
+
+
+.CTA{
+    width: 100%;
+  height: 100%;
+  margin-top: -75px;
+    box-sizing: border-box;
+    position: relative;
+    top: 168px;
+  background: #080808;
+}
+.Contact_Bg{
+   margin-top: -4px;
+    position: absolute;
+    width: 130%;
+    height:100%;
+    z-index: 0;
+    top: -90px;
+    background: #080808;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+     border-radius: 0.2% 0.2% 50% 50%;
+    box-shadow: 0 20px 40px rgba(200, 199, 202, 0.3)
+;
+}
+
+.CTA{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.Contact_Maincontent{
+position: absolute;
+z-index: 2;
+margin-top: 70px;
+animation: rainbow 3s linear infinite;
+}
+.Contact_mainTitle{
+    font-family: 'montserrat';
+    font-size: 24px;
+    color: #f9f8f9;
+}
+.Contact_headlinePara{
+     color: #7d3bb7;
+    font-size: 18px;
+    font-family: Roboto;
+}
+.layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  
+}
+.information_aboutUser{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.Input_wrap{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 5px;
+ 
+}
+.Inputs,.Input_wrap{
+  max-width: 350px;
+  width: 100%;
+}
+.InputHeader{
+    font-family: 'Roboto';
+  font-size: 18px;
+  color: #f9f8f9;
+}
+.Inputs{
+  
+  font-size: 16px;
+  outline: none;
+  border: 1px solid rgba(200, 199, 202, 0.5);
+  border-radius: 10px;
+  padding: 10px;
+
+
+  background: rgba(22,19,26,0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.Massage_box{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: start;
+  gap: 5px;
+}
+.massage_input{
+   font-size: 16px;
+  outline: none;
+  border: 1px solid rgba(200, 199, 202, 0.5);
+  border-radius: 5px;
+  height: 100px;
+  padding: 13px;
+
+  background: rgba(22,19,26,0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    resize: none;
+}
+.button{
+  width: 100%;
+  padding: 10px 30px;
+  outline: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  background-color: rgba(40, 38, 45, 0.6);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+   font-family: 'Roboto';
+
+}
+.button:hover{
+  background-color: transparent;
+  cursor: pointer;
+}
+/* ERROR STATE */
+.error {
+  border: 1px solid #ff0000 !important;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}
+
+/* TOAST ALERT */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(40, 200, 120, 0.95);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: Roboto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.4s ease;
+  z-index: 9999;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
+   LARGE TABLETS (≤ 1024px)
+   ========================= */
+
+@media (max-width: 1024px) {
+  .CTA {
+    top: 70px;
+  }
+
+  .Contact_Bg {
+    width: 150%;
+    top: -20px;
+  }
+
+  .Contact_Maincontent {
+    margin-top: 50px;
+  }
+
+  .Inputs,
+  .Input_wrap {
+    max-width: 320px;
+  }
+}
+
+/* =========================
+   TABLETS (≤ 768px)
+   ========================= */
+
+@media (max-width: 768px) {
+  .CTA {
+    top: 80px;
+    padding-bottom: 120px;
+  }
+
+  .Contact_Bg {
+    width: 180%;
+    bottom: 60%;
+    border-radius: 0 0 45% 45%;
+  }
+
+  .Contact_Maincontent {
+    position: relative;
+    margin-top: 40px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .Contact_mainTitle {
+    font-size: 22px;
+  }
+
+  .Contact_headlinePara {
+    font-size: 16px;
+  }
+
+  .layer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .Inputs,
+  .Input_wrap {
+    max-width: 100%;
+  }
+
+  .massage_input {
+    height: 120px;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+}
+
+/* =========================
+   MOBILE (≤ 480px)
+   ========================= */
+
+@media (max-width: 480px) {
+  .CTA {
+    top: 60px;
+  }
+
+  .Contact_Bg {
+    width: 220%;
+    top: -50px;
+    border-radius: 0 0 40% 40%;
+  }
+
+  .Contact_Maincontent {
+    margin-top: 30px;
+  }
+
+  .Contact_mainTitle {
+    font-size: 20px;
+  }
+
+  .Contact_headlinePara {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .InputHeader {
+    font-size: 16px;
+  }
+
+  .Inputs {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .massage_input {
+    font-size: 15px;
+    height: 110px;
+  }
+
+  .button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}

@@ -13,7 +13,7 @@ function Hero() {
 
       style={{ width: '100%', height: '100vh', position: 'relative' }}>
   <Orb 
-    hoverIntensity={4}
+    hoverIntensity={5}
     rotateOnHover={true}
     hue={280}
     forceHoverState={false}

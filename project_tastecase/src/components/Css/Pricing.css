@@ -13,32 +13,34 @@
 .PricingBG{
   background-color: #080808;
 }
-
-.Pricing{
+.Pricing {
   position: relative;
   width: 100%;
-     background-color: #080808;
-
+  min-height: 100vh;
+  background-color: #080808;
+  overflow: hidden;
 }
-.PricingBG{
-    position: absolute;
-    width: 100%;
-    top: 300px;
-    left: 0;
-    z-index: 1;
-    background-color: #080808;
-   height: 1000px;
 
+.PricingBG {
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 1;
+  background-color: #080808;
 }
-.Pricing_content{
-    position: relative;
-    width: 100%;
-     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 150px;
+
+
+.Pricing_content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .Pricing_headlines{
   display: flex;
@@ -66,7 +68,7 @@
 }
 .Pricing_CardsWrapper{
   display: flex;
-  gap: 90px;
+  gap: 50px;
   justify-content: center;
 width: 100%;
 margin-top: 70px;
@@ -80,62 +82,69 @@ margin-top: 70px;
   text-align: start;
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 350px;
   width: 100%;
-  padding: 40px;
-  padding-bottom: 150px;
-  background-color: rgba(23, 20, 28, 0.95);
-  border: 1px solid #0b0b0b;
-  border-radius: 40px;
-   filter: drop-shadow(0px 0px 10px rgba(125, 59, 183, 0.5));
-      border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  padding-bottom: 130px;
+
+      background: rgba(22,19,26,0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    
 }
+
+
+
 .Card_title{
-  font-size: 25px;
+  font-size: 20px;
   font-family: montserrat;
   color: #f8f9f8;
 }
 .card_Text{
-  font-size: 20px;
+  font-size: 16px;
   font-family:Roboto ;
   color: #ffffff;
-  margin-top: -15px;
+  margin-top: -10px;
 }
 .Pricing_start{
-   font-size: 20px;
+   font-size: 16px;
   font-family:Roboto ;
+ 
   color: #ffffff;
 }
 .Price_wrap{
-  margin-top: -50px;
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-top: -40px;
 }
 .Dolar{
-  font-size: 20px;
+  font-size: 15px;
   color: #6b6670;
   font-family: Roboto;
 }
 .Price{
-  font-size: 35px;
+  font-size: 30px;
   font-family: montserrat;
   color: #f8f9f8;
 }
 .PricicingCards_benefitsWrapper{
   display: flex;
-  margin-top: -20px;
+  margin-top: -15px;
   flex-direction: column;
-  gap: 5px;
+  
 }
 .benefit{
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
 }
 .ChackImg{
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
  border: 1px solid rgba(125, 59, 183, 0.5);
  border-radius: 50%;
  background-color: #ffffff;
@@ -144,16 +153,16 @@ margin-top: 70px;
   
 }
 .Benefit_text{
-  font-size: 20px;
+  font-size: 14px;
   color: #f8f9f8;
   font-family: Roboto;
 }
 .BTNs{
   position: absolute;
-  bottom: 40px;
-  max-width: 400px;
+  bottom: 30px;
+  max-width: 250px;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   background-color: #7d3bb7;
   font-size: 18px;
    border: 1px solid rgba(125, 59, 183, 0.5);
@@ -166,4 +175,167 @@ border-radius: 20px;
   background-color: transparent;
   transform: scale(1.01);
 
+}
+
+.Pricing_headlines {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 0.7s ease;
+  
+}
+
+.Pricing_headlines.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================
+   LARGE LAPTOPS (≤ 1200px)
+   ========================= */
+
+@media (max-width: 1200px) {
+  .Pricing_CardsWrapper {
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .Pricing_card {
+    max-width: 320px;
+  }
+  .BTNs{
+   
+  width: 100%;
+  }
+}
+
+/* =========================
+   TABLETS (≤ 992px)
+   ========================= */
+
+@media (max-width: 992px) {
+  .PricingBG {
+    height: 100%;
+    min-height: 1000px;
+   top:32%;
+  }
+
+  .Pricing_content {
+    top: 60px;
+    padding-bottom: 120px;
+  }
+
+  .Pricing_CardsWrapper {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .Pricing_card {
+    max-width: 45%;
+    padding-bottom: 120px;
+  }
+
+  .Pricing_HeadlineTitle {
+    font-size: 26px;
+  }
+
+  .Pricing_headlinePara {
+    font-size: 18px;
+    max-width: 600px;
+  }
+.BTNs{
+}
+}
+
+/* =========================
+   MOBILE (≤ 768px)
+   ========================= */
+
+@media (max-width: 768px) {
+  .Pricing {
+    padding-bottom: 80px;
+  }
+  .PricingBG {
+    min-height: 100%;
+    height: auto;
+      top:55%;
+  }
+
+  .Pricing_content {
+    top: 40px;
+    padding: 0 16px 100px;
+  }
+
+  .Pricing_HeadlineMiniText {
+    font-size: 18px;
+  }
+
+  .Pricing_HeadlineTitle {
+    font-size: 22px;
+  }
+
+  .Pricing_headlinePara {
+    font-size: 16px;
+  }
+
+  .Pricing_CardsWrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .Pricing_card {
+    max-width: 100%;
+    padding: 26px;
+    padding-bottom: 110px;
+  }
+
+  .BTNs {
+    position: relative;
+    bottom: auto;
+    margin-top: 25px;
+  width: 100%;
+  }
+
+  .BTNs:hover {
+    transform: none;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (≤ 480px)
+   ========================= */
+
+@media (max-width: 480px) {
+  .Pricing_content {
+    top: 20px;
+  }
+
+  .Pricing_HeadlineMiniText {
+    font-size: 16px;
+  }
+
+  .Pricing_HeadlineTitle {
+    font-size: 20px;
+  }
+
+  .Pricing_headlinePara {
+    font-size: 15px;
+  }
+
+  .Card_title {
+    font-size: 18px;
+  }
+
+  .Price {
+    font-size: 26px;
+  }
+
+  .Benefit_text {
+    font-size: 13px;
+  }
+
+  .BTNs {
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 16px;
+  }
 }
