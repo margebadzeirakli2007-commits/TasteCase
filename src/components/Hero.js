@@ -15,7 +15,7 @@ function Hero() {
   <Orb 
     hoverIntensity={5}
     rotateOnHover={true}
-    hue={280}
+    hue={270}
     forceHoverState={false}
     backgroundColor="#000000"
 />

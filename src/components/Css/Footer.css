@@ -5,7 +5,7 @@
 }
 .Footer{
     width: 100%;
-    margin-top: 168px;
+   padding-top: 60px;
     font-family: 'Roboto';
     background-color: #080808;
      
@@ -58,8 +58,7 @@
 @media (width <=  1000px){
 .Footer{
     width: 100%;
-    margin-top: 60px;
-    padding-top: 200px;
+    padding-top: 100px;
     font-family: 'Roboto';
     background-color: #080808;
 }

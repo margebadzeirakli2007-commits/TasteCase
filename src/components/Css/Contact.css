@@ -9,51 +9,49 @@
   font-weight: 400 900;
 }
 
-
-
 .CTA{
-    width: 100%;
-  height: 100%;
-  margin-top: -75px;
-    box-sizing: border-box;
     position: relative;
-    top: 168px;
-  background: #080808;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+        background-color: black;
+    font-family: 'montserrat', sans-serif;
+  
 }
-.Contact_Bg{
-   margin-top: -4px;
+.CTA_bg{
     position: absolute;
-    width: 130%;
-    height:100%;
-    z-index: 0;
-    top: -90px;
-    background: #080808;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-     border-radius: 0.2% 0.2% 50% 50%;
-    box-shadow: 0 20px 40px rgba(200, 199, 202, 0.3)
-;
-}
-
-.CTA{
-display: flex;
-flex-direction: column;
-align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 .Contact_Maincontent{
-position: absolute;
-z-index: 2;
-margin-top: 70px;
-animation: rainbow 3s linear infinite;
+    max-width: 700px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    text-align: center;
+    z-index: 2;
 }
+
+
+
+
+
+
+
+
 .Contact_mainTitle{
     font-family: 'montserrat';
-    font-size: 24px;
+    font-size: 26px;
     color: #f9f8f9;
 }
 .Contact_headlinePara{
      color: #7d3bb7;
-    font-size: 18px;
+    font-size: 22px;
     font-family: Roboto;
 }
 .layer{
@@ -94,10 +92,10 @@ animation: rainbow 3s linear infinite;
   padding: 10px;
 
 
-  background: rgba(22,19,26,0.2);
+  background: rgba(22,19,26,0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.4);
     border-radius: 30px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
@@ -116,10 +114,10 @@ animation: rainbow 3s linear infinite;
   height: 100px;
   padding: 13px;
 
-  background: rgba(22,19,26,0.2);
+  background: rgba(22,19,26,0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.5);
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     resize: none;
@@ -131,7 +129,19 @@ animation: rainbow 3s linear infinite;
   border: 1px solid rgba(255,255,255,0.2);
   background-color: rgba(40, 38, 45, 0.6);
   border-radius: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  font-size: 16px;
+   font-family: 'Roboto';
+
+}
+.button.red{
+  width: 100%;
+  padding: 10px 30px;
+  outline: none;
+  border: 1px solid #4CD964;
+  background-color: #4CD964;
+  border-radius: 10px;
+  transition: all 0.4s ease;
   font-size: 16px;
    font-family: 'Roboto';
 
@@ -147,20 +157,17 @@ animation: rainbow 3s linear infinite;
 }
 
 /* TOAST ALERT */
-.toast {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: rgba(40, 200, 120, 0.95);
-  color: #fff;
-  padding: 14px 22px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-family: Roboto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: slideIn 0.4s ease;
-  z-index: 9999;
+
+@keyframes colorchange {
+  from {
+    background-color: green;
+  }
+  to {
+    background-color: transparent;
+  }
 }
+
+
 
 @keyframes slideIn {
   from {
@@ -177,10 +184,7 @@ animation: rainbow 3s linear infinite;
    ========================= */
 
 @media (max-width: 1024px) {
-  .CTA {
-    top: 70px;
-  }
-
+ 
   .Contact_Bg {
     width: 150%;
     top: -20px;
@@ -201,10 +205,7 @@ animation: rainbow 3s linear infinite;
    ========================= */
 
 @media (max-width: 768px) {
-  .CTA {
-    top: 80px;
-    padding-bottom: 120px;
-  }
+
 
   .Contact_Bg {
     width: 180%;
@@ -251,9 +252,7 @@ animation: rainbow 3s linear infinite;
    ========================= */
 
 @media (max-width: 480px) {
-  .CTA {
-    top: 60px;
-  }
+
 
   .Contact_Bg {
     width: 220%;

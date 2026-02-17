@@ -1,6 +1,7 @@
 import '../components/Css/NavBar.css';
 import useInView from './ui/AnimationHook.js'
 import MainLogo from "../assets/WhatsApp_Image_2026-02-03_at_06.37.15-removebg-preview.png"
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function NavBar() {
 
@@ -26,26 +27,33 @@ function NavBar() {
       
       >
         <nav className='Nav_wrap' >
- <li className='Nav_item'>
-              <a href="#home" onClick={(e) => scrollToSection(e, 'home')}>
-                <img  src={MainLogo} alt='MainLogo' className='Logo'></img>
-              </a>
+ <li onClick={(e) => scrollToSection(e, 'home')}  className='Nav_item'>
+      <Link to="/">  
+               <img  src={MainLogo} alt='MainLogo' className='Logo'></img>
+        </Link>
             </li>
-
-
           <ul className='Nav_items'>
         
-            <li className='Nav_item'>
-              <a href="#service" onClick={(e) => scrollToSection(e, 'service')}>Service</a>
+            <li onClick={(e) => scrollToSection(e, 'service')} className='Nav_item'>
+              <Link to="/">
+              Service
+              </Link>
             </li>
-            <li className='Nav_item'>
-              <a href="#process" onClick={(e) => scrollToSection(e, 'process')}>Process</a>
+
+
+            <li onClick={(e) => scrollToSection(e, 'process')} className='Nav_item'>
+              <Link to= "/">
+                Procese
+              </Link>
             </li>
-            <li className='Nav_item'>
-              <a href="#pricing" onClick={(e) => scrollToSection(e, 'pricing')}>Pricing</a>
+            <li  onClick={(e) => scrollToSection(e, 'pricing')}  className='Nav_item'>
+              <Link   to="/">
+                  <a >Pricing</a>
+              </Link>
             </li>
+
             <li className='Nav_item'>
-              <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>Contact</a>
+                <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </nav>
