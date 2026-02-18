@@ -1,9 +1,4 @@
 {
-  "homepage": "https://margebadzeirakli2007.github.io/TasteCase"
-,
-"predeploy": "npm run build",
-"deploy": "gh-pages -d build",
-
   "name": "project_tastecase",
   "version": "0.1.0",
   "private": true,

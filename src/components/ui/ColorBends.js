@@ -122,106 +122,132 @@ export default function ColorBends({
   const pointerCurrentRef = useRef(new THREE.Vector2(0, 0));
   const pointerSmoothRef = useRef(8);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+useEffect(() => {
+  let isMounted = true; // 🔥 მთავარი დაცვა
 
-    const geometry = new THREE.PlaneGeometry(2, 2);
-    const uColorsArray = Array.from({ length: MAX_COLORS }, () => new THREE.Vector3(0, 0, 0));
-    const material = new THREE.ShaderMaterial({
-      vertexShader: vert,
-      fragmentShader: frag,
-      uniforms: {
-        uCanvas: { value: new THREE.Vector2(1, 1) },
-        uTime: { value: 0 },
-        uSpeed: { value: speed },
-        uRot: { value: new THREE.Vector2(1, 0) },
-        uColorCount: { value: 0 },
-        uColors: { value: uColorsArray },
-        uTransparent: { value: transparent ? 1 : 0 },
-        uScale: { value: scale },
-        uFrequency: { value: frequency },
-        uWarpStrength: { value: warpStrength },
-        uPointer: { value: new THREE.Vector2(0, 0) },
-        uMouseInfluence: { value: mouseInfluence },
-        uParallax: { value: parallax },
-        uNoise: { value: noise }
-      },
-      premultipliedAlpha: true,
-      transparent: true
+  const el = containerRef.current;
+  if (!el) return;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+  const geometry = new THREE.PlaneGeometry(2, 2);
+
+  const uColorsArray = Array.from({ length: MAX_COLORS }, () => new THREE.Vector3(0, 0, 0));
+
+  const material = new THREE.ShaderMaterial({
+    vertexShader: vert,
+    fragmentShader: frag,
+    uniforms: {
+      uCanvas: { value: new THREE.Vector2(1, 1) },
+      uTime: { value: 0 },
+      uSpeed: { value: speed },
+      uRot: { value: new THREE.Vector2(1, 0) },
+      uColorCount: { value: 0 },
+      uColors: { value: uColorsArray },
+      uTransparent: { value: transparent ? 1 : 0 },
+      uScale: { value: scale },
+      uFrequency: { value: frequency },
+      uWarpStrength: { value: warpStrength },
+      uPointer: { value: new THREE.Vector2(0, 0) },
+      uMouseInfluence: { value: mouseInfluence },
+      uParallax: { value: parallax },
+      uNoise: { value: noise }
+    },
+    premultipliedAlpha: true,
+    transparent: true
+  });
+
+  materialRef.current = material;
+
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  const renderer = new THREE.WebGLRenderer({
+    antialias: false,
+    powerPreference: 'high-performance',
+    alpha: true
+  });
+
+  rendererRef.current = renderer;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setClearColor(0x000000, transparent ? 0 : 1);
+  renderer.domElement.style.width = '100%';
+  renderer.domElement.style.height = '100%';
+  renderer.domElement.style.display = 'block';
+
+  el.appendChild(renderer.domElement);
+
+  const clock = new THREE.Clock();
+
+  const handleResize = () => {
+    if (!isMounted) return; // 🔥 STOP after unmount
+    const node = containerRef.current;
+    if (!node) return;
+
+    const w = node.clientWidth || 1;
+    const h = node.clientHeight || 1;
+
+    renderer.setSize(w, h, false);
+    material.uniforms.uCanvas.value.set(w, h);
+  };
+
+  handleResize();
+
+  let ro;
+
+  if ('ResizeObserver' in window) {
+    ro = new ResizeObserver(() => {
+      handleResize();
     });
-    materialRef.current = material;
+    ro.observe(el);
+  } else {
+    window.addEventListener('resize', handleResize);
+  }
 
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+  const loop = () => {
+    if (!isMounted) return;
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: false,
-      powerPreference: 'high-performance',
-      alpha: true
-    });
-    rendererRef.current = renderer;
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setClearColor(0x000000, transparent ? 0 : 1);
-    renderer.domElement.style.width = '100%';
-    renderer.domElement.style.height = '100%';
-    renderer.domElement.style.display = 'block';
-    container.appendChild(renderer.domElement);
+    const dt = clock.getDelta();
+    const elapsed = clock.elapsedTime;
 
-    const clock = new THREE.Clock();
+    material.uniforms.uTime.value = elapsed;
 
-    const handleResize = () => {
-      const w = container.clientWidth || 1;
-      const h = container.clientHeight || 1;
-      renderer.setSize(w, h, false);
-      material.uniforms.uCanvas.value.set(w, h);
-    };
+    const deg = (rotationRef.current % 360) + autoRotateRef.current * elapsed;
+    const rad = (deg * Math.PI) / 180;
 
-    handleResize();
+    material.uniforms.uRot.value.set(Math.cos(rad), Math.sin(rad));
 
-    if ('ResizeObserver' in window) {
-      const ro = new ResizeObserver(handleResize);
-      ro.observe(container);
-      resizeObserverRef.current = ro;
-    } else {
-      window.addEventListener('resize', handleResize);
-    }
+    const cur = pointerCurrentRef.current;
+    const tgt = pointerTargetRef.current;
+    const amt = Math.min(1, dt * pointerSmoothRef.current);
 
-    const loop = () => {
-      const dt = clock.getDelta();
-      const elapsed = clock.elapsedTime;
-      material.uniforms.uTime.value = elapsed;
+    cur.lerp(tgt, amt);
+    material.uniforms.uPointer.value.copy(cur);
 
-      const deg = (rotationRef.current % 360) + autoRotateRef.current * elapsed;
-      const rad = (deg * Math.PI) / 180;
-      const c = Math.cos(rad);
-      const s = Math.sin(rad);
-      material.uniforms.uRot.value.set(c, s);
-
-      const cur = pointerCurrentRef.current;
-      const tgt = pointerTargetRef.current;
-      const amt = Math.min(1, dt * pointerSmoothRef.current);
-      cur.lerp(tgt, amt);
-      material.uniforms.uPointer.value.copy(cur);
-      renderer.render(scene, camera);
-      rafRef.current = requestAnimationFrame(loop);
-    };
+    renderer.render(scene, camera);
     rafRef.current = requestAnimationFrame(loop);
+  };
 
-    return () => {
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
-      if (resizeObserverRef.current) resizeObserverRef.current.disconnect();
-      else window.removeEventListener('resize', handleResize);
-      geometry.dispose();
-      material.dispose();
-      renderer.dispose();
-      if (renderer.domElement && renderer.domElement.parentElement === container) {
-        container.removeChild(renderer.domElement);
-      }
-    };
-  }, [frequency, mouseInfluence, noise, parallax, scale, speed, transparent, warpStrength]);
+  rafRef.current = requestAnimationFrame(loop);
+
+  return () => {
+    isMounted = false; // 🔥 აქ ვაჩერებთ ყველაფერს
+
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+
+    if (ro) ro.disconnect();
+    else window.removeEventListener('resize', handleResize);
+
+    geometry.dispose();
+    material.dispose();
+    renderer.dispose();
+
+    if (renderer.domElement.parentElement === el) {
+      el.removeChild(renderer.domElement);
+    }
+  };
+}, [frequency, mouseInfluence, noise, parallax, scale, speed, transparent, warpStrength]);
 
   useEffect(() => {
     const material = materialRef.current;

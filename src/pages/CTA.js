@@ -71,6 +71,7 @@ function CTA() {
   autoRotate={1}
   color=""
 />
+
       </div>
       <NavBar/>
 			<div className="Contact_Maincontent">
