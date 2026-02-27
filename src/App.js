@@ -1,8 +1,9 @@
 import './App.css';
   import Home from './pages/Home.js';
   import CTA from './pages/CTA.js';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
+  import AboutUs from './pages/AboutUs.js';
+  import NotFound from './pages/NotFound.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/About" element={<AboutUs />} />
         <Route path="/Contact" element={<CTA />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,65 @@
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh; /* Adjust based on navbar/footer */
+  background-color: #080808; /* Match app background */
+  color: white;
+  padding: 20px;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.not-found-title {
+  font-size: 10rem;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(45deg, #ff6b6b, #9c33e5, #7c0d54, #9c33e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(156, 51, 229, 0.5);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(78, 205, 196, 0.8);
+  }
+}
+
+.not-found-message {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #cccccc;
+}
+
+.not-found-submessage {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #aaaaaa;
+}
+
+.not-found-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #ff6b6b, #9c33e5);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.not-found-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+  background: linear-gradient(45deg, #7c0d54, #ff6b6b);
+}

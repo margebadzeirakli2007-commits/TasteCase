@@ -1,14 +1,16 @@
 import { Mesh, Program, Renderer, Triangle, Vec3 } from 'ogl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Css/Orb.css';
 export default function Orb({
   hue = 0,
   hoverIntensity = 0.2,
   rotateOnHover = true,
   forceHoverState = false,
-  backgroundColor = '#000000'
+  backgroundColor = '#000000',
+  hoverDelay = 300 // milliseconds before hover kicks in
 }) {
   const ctnDom = useRef(null);
+  const [webglSupported, setWebglSupported] = useState(true);
 
   const vert = /* glsl */ `
     precision highp float;
@@ -186,7 +188,14 @@ export default function Orb({
     const container = ctnDom.current;
     if (!container) return;
 
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
+    let renderer;
+    try {
+      renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
+    } catch (error) {
+      console.warn('WebGL not supported, falling back to static orb');
+      setWebglSupported(false);
+      return;
+    }
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     container.appendChild(gl.canvas);
@@ -227,6 +236,7 @@ export default function Orb({
     let lastTime = 0;
     let currentRot = 0;
     const rotationSpeed = 0.3;
+    let hoverTimer = null;
 
     const handleMouseMove = e => {
       const rect = container.getBoundingClientRect();
@@ -240,14 +250,29 @@ export default function Orb({
       const uvX = ((x - centerX) / size) * 2.0;
       const uvY = ((y - centerY) / size) * 2.0;
 
-      if (Math.sqrt(uvX * uvX + uvY * uvY) < 0.8) {
-        targetHover = 1;
+      const inside = Math.sqrt(uvX * uvX + uvY * uvY) < 0.8;
+      if (inside) {
+        if (hoverTimer === null && targetHover === 0) {
+          // start delay timer
+          hoverTimer = setTimeout(() => {
+            targetHover = 1;
+            hoverTimer = null;
+          }, hoverDelay);
+        }
       } else {
+        if (hoverTimer !== null) {
+          clearTimeout(hoverTimer);
+          hoverTimer = null;
+        }
         targetHover = 0;
       }
     };
 
     const handleMouseLeave = () => {
+      if (hoverTimer !== null) {
+        clearTimeout(hoverTimer);
+        hoverTimer = null;
+      }
       targetHover = 0;
     };
 
@@ -281,13 +306,17 @@ export default function Orb({
       window.removeEventListener('resize', resize);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      if (hoverTimer !== null) {
+        clearTimeout(hoverTimer);
+        hoverTimer = null;
+      }
       container.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hue, hoverIntensity, rotateOnHover, forceHoverState, backgroundColor]);
+  }, [hue, hoverIntensity, rotateOnHover, forceHoverState, backgroundColor, hoverDelay]);
 
-  return <div ref={ctnDom} className="orb-container" />;
+  return webglSupported ? <div ref={ctnDom} className="orb-container" /> : <div className="orb-container orb-fallback" />;
 }
 
 function hslToRgb(h, s, l) {

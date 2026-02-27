@@ -2,8 +2,10 @@ import emailjs from "emailjs-com";
 import { useState } from "react";
 import NavBar from "../components/navBar";
 import ColorBends from '../components/ui/ColorBends.js';
+import TextType from '../components/ui/TextType.js';
+import Aurora from '../components/ui/Aurora.js';
 import "../components/Css/Contact.css"
-
+import Footer from "../components/Footer.js";
 function CTA() {
 
   const [errors, setErrors] = useState({});
@@ -17,7 +19,7 @@ function CTA() {
 
     let newErrors = {};
 
-    ["first_name", "last_name", "email", "subject", "message"].forEach(
+    ["first_name", "last_name", "email", "phone", "subject", "message"].forEach(
       (field) => {
         if (!formData.get(field)) {
           newErrors[field] = true;
@@ -54,13 +56,14 @@ function CTA() {
 
 
 	return (
-		<section  className="CTA">
+		<section >
+      <div className="CTA">
       <div className="CTA_bg">
           
 <ColorBends
-  colors={["#d085f5", "#9c33e5", "#6c3970"]}
+  colors={["#7c0d54", "#9c33e5", "#500b15"]}
   rotation={0}
-  speed={0.1}
+  speed={0.3}
   scale={1.3}
   frequency={1}
   warpStrength={1}
@@ -68,19 +71,35 @@ function CTA() {
   parallax={0.5}
   noise={0}
   transparent
-  autoRotate={1}
+  autoRotate={0.5}
   color=""
+/>
+
+<Aurora
+  colorStops={["#d085f5", "#9c33e5", "#6c3970"]}
+  speed={1}
+  amplitude={0.5}
+  blend={0.5}
 />
 
       </div>
       <NavBar/>
 			<div className="Contact_Maincontent">
 				<div className="Contact Headlines">
-					<h2 className="Contact_mainTitle">
-						Lets have a Chat
-					</h2>
+					<TextType
+						text="Get Your Custom AI Bot"
+						as="h2"
+						className="Contact_mainTitle"
+						typingSpeed={50}
+						initialDelay={200}
+						pauseDuration={1000}
+						loop={false}
+						showCursor={true}
+						cursorCharacter="|"
+						cursorBlinkDuration={0.3}
+					/>
 					<p className="Contact_headlinePara">
-						Question about our product, orders , or just want to say hello? We're here to help
+						Ready to automate your business? Contact us to discuss your AI bot needs and get a customized solution.
 					</p>
 				</div>
         <div className="Form_Wrapper">
@@ -120,13 +139,18 @@ function CTA() {
                 </div>
                 <div className="Input_wrap">
                      <label className="InputHeader">
-                         Subject
+                         Phone Number
                     </label>
-   <input
-          name="subject"
-          className={`Inputs ${errors.subject ? "error" : ""}`}
-          placeholder="Subject"
-        />                </div>
+  <input
+          type="tel"
+          name="phone"
+          className={`Inputs ${errors.phone ? "error" : ""}`}
+          placeholder="+995 555 123 456"
+        />
+                </div>
+              </div>
+              <div className="Third layer">
+
               </div>
               <div className="Massage_box">
                 <label className="InputHeader">
@@ -145,6 +169,11 @@ function CTA() {
           </form>
         </div>
 				</div>
+
+
+
+      </div>
+        <Footer/>
 		</section>
 	);
 }

@@ -9,35 +9,51 @@
   font-weight: 400 900;
 }
 .Process{
-
-   background-color: #080808;
+  background-color: black;
 }
 .Porcess_wrapper{
-
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    border-bottom: 1px dotted rgba(165, 86, 244, 0.1);
     
 }
-.Process_Bg{
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-    background-color: #080808;
-   
-}
+
 .Process_cardWrapper{
-   padding-top: 60px;
     position: absolute;
     width: 100%;
-    margin-top: 40px;
      z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    top: 25%;
+ transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+.Process_cardWrapper.show{
+  opacity: 1;
+    transform: translateY(0);
+   
+}
+.ProcessCard_wrapper{
+  transform: translateX(50px);
+  opacity: 0;
+    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+.ProcessCard_wrapper.show{
+  opacity: 1;
+    transform: translateX(0);
+}
+.Proc_bg{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background-color: black;
+    top: 10%
+    ;
+     transform: scale(1.5);
 }
 .Process_headlines{
     display: flex;
@@ -49,17 +65,17 @@
 
 }
 .Process_mini_title{
-    color: #7d3bb7;
+    color: #5a2d7a;
     font-size: 18px;
     font-family: Roboto;
 }
 .Process_title{
     font-size: 25px;
-    color: #ffffff;
+    color: #f5f5f5;
     font-family: montserrat;
 }
 .Process_subtitle{
-    color: #87848d;
+    color: #6b6772;
     font-size: 18px;
     font-family: Roboto;
 }
@@ -67,7 +83,7 @@
     display: flex;
     width: 100%;
     max-width: 1200px;
-    margin-top: 80px;
+
 }
 .ProcessCards{
     background-color: #121212;
@@ -81,44 +97,38 @@
     justify-content: center;
     gap: 10px;
       border: 2px solid rgba(255, 255, 255, 0.08);
-
         filter: drop-shadow(10px 10px 10px rgba(48, 8, 76, 0.));
 transition: all 0.3s ease;
 
-background: rgba(22,19,26,0.5);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.06);
+background: rgba(15,12,18,0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.04);
     border-radius: 30px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 
 }
 .ProcessCard_IMG{
    width: 50px;
    height: 50px;
    padding: 15px;
-   border: 1px solid #7d3bb7;
+   border: 1px solid #9c33e5;
     border-radius: 35%;
-    background-color: #FFffFF;
-
-;
-        filter: drop-shadow(0px 0px 5px rgb(248, 203, 238));
-
+    background-color: #ddb9ef;
  
 }
 
 .ProcessCards:hover{
     transform: scale(1.1);
- 
       border: 1px solid rgba(255, 255, 255, 0.08);
-
         filter: drop-shadow(10px 10px 10px rgba(48, 8, 76, 0.6));
 
 }
+
 .Process_headlines {
   opacity: 0;
-  transform: translateX(-100px);
-  transition: all 0.4s ease;
+  transform: translateX(-50px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   
 }
 
@@ -127,18 +137,13 @@ background: rgba(22,19,26,0.5);
   transform: translateX(0);
 }
 
-.ProcessCard_wrapper {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 0.3s ease;
-}
 
 .ProcessCard_wrapper.show {
   opacity: 1;
   transform: translateX(0);
 }
 .ProcessCard_title{
-    color: #ffffff;
+    color: #f5f5f5;
     font-size: 20px;
     font-family: montserrat;
             filter: drop-shadow(0px 0px 5px rgb(248, 203, 238));
@@ -147,11 +152,12 @@ background: rgba(22,19,26,0.5);
 
 .ProcessCard_para{
     margin-top: -20px;
-    color: #87848d;
+    color: #6b6772;
     font-size: 16px;
     font-family: Roboto;
     text-align: center;
 }
+
 
 @media (max-width: 1200px) {
   .ProcessCard_wrapper {
@@ -207,7 +213,7 @@ background: rgba(22,19,26,0.5);
     background-color: #080808;
    
 }
-}
+
 
 /* Mobile landscape */
 @media (max-width: 768px) {
@@ -275,4 +281,4 @@ background: rgba(22,19,26,0.5);
     padding: 22px;
     border-radius: 24px;
   }
-}
+}}

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
 
@@ -45,6 +45,7 @@ const Hyperspeed = ({
 }) => {
   const hyperspeed = useRef(null);
   const appRef = useRef(null);
+  const [webglSupported, setWebglSupported] = useState(true);
 
   useEffect(() => {
     if (appRef.current) {
@@ -350,10 +351,16 @@ const Hyperspeed = ({
           };
         }
         this.container = container;
-        this.renderer = new THREE.WebGLRenderer({
-          antialias: false,
-          alpha: true
-        });
+        try {
+          this.renderer = new THREE.WebGLRenderer({
+            antialias: false,
+            alpha: true
+          });
+        } catch (error) {
+          console.warn('WebGL not supported for Hyperspeed, skipping');
+          this.renderer = null;
+          return;
+        }
         this.renderer.setSize(container.offsetWidth, container.offsetHeight, false);
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.composer = new EffectComposer(this.renderer);
@@ -1106,6 +1113,10 @@ const Hyperspeed = ({
       options.distortion = distortions[options.distortion];
 
       const myApp = new App(container, options);
+      if (!myApp.renderer) {
+        setWebglSupported(false);
+        return;
+      }
       appRef.current = myApp;
       myApp.loadAssets().then(myApp.init);
     })();
@@ -1117,7 +1128,7 @@ const Hyperspeed = ({
     };
   }, [effectOptions]);
 
-  return <div id="lights" ref={hyperspeed}></div>;
+  return webglSupported ? <div id="lights" ref={hyperspeed}></div> : <div className="hyperspeed-fallback"></div>;
 };
 
 export default Hyperspeed;

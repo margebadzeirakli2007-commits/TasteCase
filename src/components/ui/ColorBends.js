@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import './ColorBends.css';
 
@@ -115,12 +115,12 @@ export default function ColorBends({
   const rendererRef = useRef(null);
   const rafRef = useRef(null);
   const materialRef = useRef(null);
-  const resizeObserverRef = useRef(null);
   const rotationRef = useRef(rotation);
   const autoRotateRef = useRef(autoRotate);
   const pointerTargetRef = useRef(new THREE.Vector2(0, 0));
   const pointerCurrentRef = useRef(new THREE.Vector2(0, 0));
   const pointerSmoothRef = useRef(8);
+  const [webglSupported, setWebglSupported] = useState(true);
 
 useEffect(() => {
   let isMounted = true; // 🔥 მთავარი დაცვა
@@ -162,11 +162,18 @@ useEffect(() => {
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
-  const renderer = new THREE.WebGLRenderer({
-    antialias: false,
-    powerPreference: 'high-performance',
-    alpha: true
-  });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({
+      antialias: false,
+      powerPreference: 'high-performance',
+      alpha: true
+    });
+  } catch (error) {
+    console.warn('WebGL not supported for ColorBends, skipping');
+    setWebglSupported(false);
+    return;
+  }
 
   rendererRef.current = renderer;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -315,5 +322,5 @@ useEffect(() => {
     };
   }, []);
 
-  return <div ref={containerRef} className={`color-bends-container ${className}`} style={style} />;
+  return webglSupported ? <div ref={containerRef} className={`color-bends-container ${className}`} style={style} /> : <div className={`color-bends-container color-bends-fallback ${className}`} style={style} />;
 }
