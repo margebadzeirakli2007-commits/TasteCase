@@ -13,7 +13,9 @@ const [cardsRef, cardsVisible] = useInView();
 		<section  className="Pricing">
 <div
 ref={ref}
-  className={`Pricing_BG ${visible ? "show" : ""}`}
+//   className={`Pricing_BG ${visible ? "show" : ""}`}
+  
+  className="Pricing_BG show"
 
 >
 			<Hyperspeed />

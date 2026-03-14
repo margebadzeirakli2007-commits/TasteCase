@@ -28,6 +28,7 @@
     align-items: center;
     justify-content: center;
     top: 25%;
+    gap: 15px;
  transform: translateY(50px);
     transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
@@ -114,7 +115,7 @@ background: rgba(15,12,18,0.6);
    padding: 15px;
    border: 1px solid #9c33e5;
     border-radius: 35%;
-    background-color: #ddb9ef;
+    background-color: #ffffff;
  
 }
 
@@ -143,10 +144,10 @@ background: rgba(15,12,18,0.6);
   transform: translateX(0);
 }
 .ProcessCard_title{
-    color: #f5f5f5;
+    color: #ffffff;
     font-size: 20px;
     font-family: montserrat;
-            filter: drop-shadow(0px 0px 5px rgb(248, 203, 238));
+            filter: drop-shadow(0px 0px 1px rgb(248, 203, 238));
 
 }
 

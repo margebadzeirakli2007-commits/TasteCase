@@ -19,7 +19,7 @@ function CTA() {
 
     let newErrors = {};
 
-    ["first_name", "last_name", "email", "phone", "subject", "message"].forEach(
+    ["first_name", "last_name", "email", "phone", "message"].forEach(
       (field) => {
         if (!formData.get(field)) {
           newErrors[field] = true;

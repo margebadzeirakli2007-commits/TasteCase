@@ -7,7 +7,7 @@ export default function Orb({
   rotateOnHover = true,
   forceHoverState = false,
   backgroundColor = '#000000',
-  hoverDelay = 300 // milliseconds before hover kicks in
+  hoverDelay = 150 // milliseconds before hover kicks in
 }) {
   const ctnDom = useRef(null);
   const [webglSupported, setWebglSupported] = useState(true);

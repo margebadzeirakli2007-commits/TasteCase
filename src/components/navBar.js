@@ -1,6 +1,6 @@
 import '../components/Css/NavBar.css';
 import useInView from './ui/AnimationHook.js'
-import MainLogo from "../assets/WhatsApp_Image_2026-02-03_at_06.37.15-removebg-preview.png"
+import MainLogo from "../assets/IMG_4045.png"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 

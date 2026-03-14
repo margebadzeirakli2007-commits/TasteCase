@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Fluid base font size: scales between 14px and 18px for responsive text */
+html {
+  font-size: clamp(14px, 0.875rem + 0.5vw, 18px);
+}
